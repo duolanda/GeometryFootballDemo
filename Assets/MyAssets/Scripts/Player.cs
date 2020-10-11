@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    Vector3 initPos = Vector3.zero;
+    Quaternion iniRotation = Quaternion.identity;
     Rigidbody rd;
+
     public float force = 50f;
     float maxSpeed = 12f;
     public float rotateSpeed = 160;
@@ -71,6 +74,13 @@ public class Move : MonoBehaviour
 
         }
 
+    }
+
+    public void InitPlayer()
+    {
+        rd.velocity = Vector3.zero;
+        transform.localPosition = initPos;
+        transform.localRotation = iniRotation;
     }
 
     //private void barMove()
